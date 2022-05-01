@@ -4,10 +4,14 @@ console.log("require加载成功");
 // Configure loading modules from the lib directory,
 // except 'app' ones,
 requirejs.config({
-  baseUrl: "js/lib",
+  baseUrl: "lib",
   paths: {
     "jquery":"jquery.min",
-    "nav": "../index/nav",
+    "nav": "../js/index/nav",
+    "bootstrap":"../lib/bootstrap/js/bootstrap"
+  },
+  shim:{
+    "bootstrap":["jquery"]
   }
 });
 

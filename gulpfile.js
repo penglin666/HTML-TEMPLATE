@@ -22,7 +22,7 @@ gulp.task("html", () =>
   gulp.src("*.html").pipe(gulp.dest("dist")).pipe(connect.reload())
 );
 gulp.task("copy", () =>
-  gulp.src("js/lib/*").pipe(gulp.dest("dist/js/lib")).pipe(connect.reload())
+  gulp.src("lib/**").pipe(gulp.dest("dist/lib")).pipe(connect.reload())
 );
 gulp.task("images", () =>
   gulp.src("imgs/**/*").pipe(gulp.dest("dist/imgs")).pipe(connect.reload())
@@ -34,7 +34,7 @@ gulp.task("watch", (done) => {
   gulp.watch("*.html", gulp.series("html"));
   gulp.watch("css/*.scss", gulp.series("scss"));
   gulp.watch(["js/*.js", "js/*/*.js"], gulp.series("scripts"));
-  gulp.watch("js/lib/*", gulp.series("copy"));
+  gulp.watch("lib/**", gulp.series("copy"));
   gulp.watch("imgs/**/*", gulp.series("images"));
   done();
 });
