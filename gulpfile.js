@@ -2,15 +2,15 @@ const gulp = require("gulp");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass")(require("sass"));
 const minifyCss = require("gulp-minify-css");
-gulp.task("scss", () =>
+gulp.task("scss", ()=>
   gulp
-    .src("css/*.scss")
-    .pipe(sass())
-    // .pipe(gulp.dest("dist/css"))
-    .pipe(minifyCss())
-    .pipe(rename("index.min.css"))
-    .pipe(gulp.dest("dist/css"))
-    .pipe(connect.reload())
+  .src("css/*.scss")
+  .pipe(sass())
+  // .pipe(gulp.dest("dist/css"))
+  .pipe(minifyCss())
+  .pipe(rename(path=>{path.basename += ".min"}))
+  .pipe(gulp.dest("dist/css"))
+  .pipe(connect.reload())
 );
 gulp.task("scripts", () =>
   gulp
@@ -24,17 +24,21 @@ gulp.task("html", () =>
 gulp.task("copy", () =>
   gulp.src("lib/**").pipe(gulp.dest("dist/lib")).pipe(connect.reload())
 );
+gulp.task("copyTemplate", () =>
+  gulp.src("template/**").pipe(gulp.dest("dist/template")).pipe(connect.reload())
+);
 gulp.task("images", () =>
   gulp.src("imgs/**/*").pipe(gulp.dest("dist/imgs")).pipe(connect.reload())
 );
 // 执行多个任务
-gulp.task("build", gulp.series("scss", "scripts", "html", "images", "copy"));
+gulp.task("build", gulp.series("scss", "scripts", "html", "images", "copy","copyTemplate"));
 // 监听多个任务
 gulp.task("watch", (done) => {
   gulp.watch("*.html", gulp.series("html"));
   gulp.watch("css/*.scss", gulp.series("scss"));
   gulp.watch(["js/*.js", "js/*/*.js"], gulp.series("scripts"));
   gulp.watch("lib/**", gulp.series("copy"));
+  gulp.watch("template/**", gulp.series("copyTemplate"));
   gulp.watch("imgs/**/*", gulp.series("images"));
   done();
 });

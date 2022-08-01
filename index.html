@@ -2,23 +2,59 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <base href="/">
-    <link rel="stylesheet" href="css/index.min.css" />
-    <script src="lib/require.js" defer async data-main="js/index/main"></script>
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
-
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+	<title>欢迎</title>
+	<script src="lib/require.js" defer async data-main="js/index/main"></script>
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/index.min.css" />
 </head>
 
 <body>
-    <div class="home">
-        <div class="alert alert-info" role="alert">
-            A simple info alert—check it out!
-          </div>
-    </div>
+	<!-- 导航开始 -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<!-- 移动端导航处理 -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">PL's website</a>
+			</div>
+			<!-- 移动端处理结束 -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active"><a href="#home">首页<span class="sr-only">(current)</span></a></li>
+					<li><a href="#pic">图库</a></li>
+					<li><a href="#note">笔记</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="login"><a href="./login.html">登录</a></li>
+					<li class="register"><a href="#">注册</a></li>
+					<li class="user"><a href="#"><img src="imgs/name.png" class="avtar" /></a></li>
+					<li class="logout"><a href="#">退出</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	<!-- 导航结束 -->
+	<main class="container">
+		<article class="col-xs-12 col-sm-8 col-md-9"></article>
+		<aside class="col-xs-3 hidden-xs col-sm-4 col-md-3">
+			<h4>欢迎您，<a class="nickName"></a></h4>
+		</aside>
+	</main>
 </body>
-
+<script type="text/javascript">
+	// window._AMapSecurityConfig = {
+	// 		serviceHost:'www.iuleejieun.xyz/_AMapService',  
+	// 		// 例如 ：serviceHost:'http://1.1.1.1:80/_AMapService',
+	// }
+</script>
+<!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=2e453f82366bf67b6fcfd8b95628071f"></script>  -->
 </html>
