@@ -9,7 +9,6 @@ requirejs.config({
     jquery: "jquery.min",
     bootstrap: "../lib/bootstrap/js/bootstrap",
     nav: "../js/index/nav",
-    aside:"../js/index/aside",
   },
   shim: {
     bootstrap: ["jquery"]
@@ -17,7 +16,7 @@ requirejs.config({
 });
 
 // Load the main app module to start the app
-requirejs(["nav", "aside","bootstrap"], function (nav,aside) {
+requirejs(["nav","bootstrap"], function (nav,aside) {
   $("body").css("padding-top", $(".navbar").height());
   hashChange();
   nav.userInfoApi();
