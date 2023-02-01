@@ -1,4 +1,4 @@
-define(["jquery"], function ($) {
+define(["jquery","echarts"], function ($) {
   $(".navbar-left>li").on("click", function (e) {
     $(".navbar-left>li").removeClass("active");
     $(this).addClass("active");

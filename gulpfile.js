@@ -58,4 +58,4 @@ gulp.task("server", () => {
   });
 });
 // 启动默认任务
-gulp.task("default", gulp.series(["watch", "server"]));
+gulp.task("default", gulp.series(["build","watch", "server"]));
